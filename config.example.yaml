@@ -52,12 +52,13 @@ filters:
   must_have:
     - dishwasher
     - in-unit laundry
+    - parking
+    - central air
 
   # Amenities that boost ranking score but don't disqualify if absent
   nice_to_have:
-    - parking
     - gym
-    - rooftop
+    - pool
 
   # Phrases that disqualify a listing (case-insensitive substring match
   # checked against description and amenities)
