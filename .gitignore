@@ -1,0 +1,21 @@
+# Personal config — contains your email, phone, neighborhood, and listing URLs
+config.yaml
+config.yml
+
+# State files — machine-generated, can be large
+seen-listings.json
+daily-log.json
+
+# Backup state files
+*.bak
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Cowork runtime
+.claude/

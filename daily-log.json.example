@@ -1,0 +1,42 @@
+{
+  "runs": [
+    {
+      "timestamp": "2025-01-15T10:00:00Z",
+      "sources_checked": 9,
+      "sources_blocked": 5,
+      "new_listings_seen": 2,
+      "matches": 1,
+      "alerts_sent": true,
+      "active_listings": [
+        {
+          "id": "abc12345678",
+          "address": "123 Main St, Apt 4B",
+          "price": 2800,
+          "beds": 2,
+          "baths": 1,
+          "url": "https://example-site.com/apartments/abc12345678",
+          "notified": true
+        }
+      ]
+    },
+    {
+      "timestamp": "2025-01-15T12:00:00Z",
+      "sources_checked": 9,
+      "sources_blocked": 5,
+      "new_listings_seen": 0,
+      "matches": 0,
+      "alerts_sent": false,
+      "active_listings": [
+        {
+          "id": "abc12345678",
+          "address": "123 Main St, Apt 4B",
+          "price": 2800,
+          "beds": 2,
+          "baths": 1,
+          "url": "https://example-site.com/apartments/abc12345678",
+          "notified": true
+        }
+      ]
+    }
+  ]
+}

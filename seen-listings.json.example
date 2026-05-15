@@ -1,0 +1,39 @@
+{
+  "last_updated": "2025-01-15T10:30:00Z",
+  "listings": {
+    "abc12345678": {
+      "first_seen": "2025-01-15T10:30:00Z",
+      "url": "https://example-site.com/apartments/abc12345678",
+      "price": 2800,
+      "beds": 2,
+      "baths": 1,
+      "address": "123 Main St, Apt 4B",
+      "neighborhood": "Midtown",
+      "sqft": 850,
+      "available_date": "Feb 1",
+      "amenities": ["dishwasher", "in-unit laundry", "elevator"],
+      "nice_to_have_found": ["gym"],
+      "match_score": 1,
+      "matched": true,
+      "notified": true,
+      "weekly_scan": false
+    },
+    "def87654321": {
+      "first_seen": "2025-01-14T16:45:00Z",
+      "url": "https://craigslist.org/apa/d/listing-title/def87654321.html",
+      "price": 3200,
+      "beds": 3,
+      "baths": 1.5,
+      "address": "456 Oak Ave",
+      "neighborhood": "West Village",
+      "sqft": null,
+      "available_date": null,
+      "amenities": ["dishwasher", "parking"],
+      "nice_to_have_found": ["parking"],
+      "match_score": 1,
+      "matched": false,
+      "notified": false,
+      "weekly_scan": false
+    }
+  }
+}

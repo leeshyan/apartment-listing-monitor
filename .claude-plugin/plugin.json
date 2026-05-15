@@ -1,0 +1,12 @@
+{
+  "name": "apartment-listing-monitor",
+  "version": "0.1.0",
+  "description": "Config-driven apartment listing monitor. Checks listing URLs on a schedule, tracks seen vs. new listings in a JSON state file, and fires notifications (email, SMS, Slack) when new matches are found under your price threshold.",
+  "author": {
+    "name": "Community"
+  },
+  "homepage": "https://github.com/your-username/apartment-listing-monitor",
+  "repository": "https://github.com/your-username/apartment-listing-monitor",
+  "license": "MIT",
+  "keywords": ["apartment", "real-estate", "listings", "monitor", "notifications", "scheduler", "housing"]
+}

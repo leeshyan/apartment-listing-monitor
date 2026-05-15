@@ -1,0 +1,134 @@
+# ============================================================
+# Apartment Listing Monitor — Configuration
+# ============================================================
+# Copy this file to config.yaml and fill in your details.
+# Run /configure in Cowork to be walked through this interactively.
+# Full schema documentation: skills/configure/references/config-schema.md
+# ============================================================
+
+
+# ----------------------------------------------------------
+# LISTING URLS
+# Search results pages to monitor. One URL per source.
+# Each URL should show multiple listings — not a single listing.
+# Apply your filters on the site first (city, price, beds) to reduce noise.
+# ----------------------------------------------------------
+listing_urls:
+  - https://craigslist.org/search/apa?query=&min_price=&max_price=YOUR_MAX&min_bedrooms=YOUR_MIN_BEDS&availabilityMode=0&sale_date=all+dates
+  - https://www.zillow.com/YOUR-CITY-ST/rentals/?searchQueryState=...
+  - https://www.apartments.com/YOUR-CITY-ST/min-Xbr-max-Ybr-under-ZZZZ/
+  # Add more URLs as needed
+
+
+# ----------------------------------------------------------
+# SEARCH FILTERS
+# ----------------------------------------------------------
+filters:
+
+  # Bedroom count
+  beds_min: 2          # Minimum bedrooms (0 = studio)
+  beds_max: 3          # Maximum bedrooms (remove this line for no upper limit)
+
+  # Bathroom count (accepts 0.5 increments, e.g. 1.5)
+  baths_min: 1
+
+  # Price ceiling — listings above this monthly rent are skipped
+  max_price: 3500
+
+  # Number of people splitting rent (used for price-per-person in notifications)
+  num_people: 2
+
+  # Neighborhoods to accept — leave empty list to accept any neighborhood
+  # Case-insensitive substring match against neighborhood name or address
+  neighborhoods:
+    - Your Neighborhood
+    - Another Neighborhood
+    # - Downtown
+    # - Midtown
+
+  # Amenities that MUST be present — listing is rejected if any are missing
+  # Common options: dishwasher, in-unit laundry, parking, elevator, gym,
+  #                 doorman, pet-friendly, air conditioning, hardwood floors
+  must_have:
+    - dishwasher
+    - in-unit laundry
+
+  # Amenities that boost ranking score but don't disqualify if absent
+  nice_to_have:
+    - parking
+    - gym
+    - rooftop
+
+  # Phrases that disqualify a listing (case-insensitive substring match
+  # checked against description and amenities)
+  dealbreakers:
+    - no pets
+    - street parking only
+    - heat not included
+    # Add more dealbreaker phrases here
+
+
+# ----------------------------------------------------------
+# NOTIFICATIONS
+# Connect your tools in Cowork first, then enable them here.
+# ----------------------------------------------------------
+notifications:
+
+  # Email notifications
+  # Requires: an email MCP connector (e.g. Gmail, SendGrid, Resend)
+  email:
+    enabled: true
+    to: you@example.com         # Where to send alerts
+    from: alerts@example.com    # Sender address (must match your email connector)
+    instant_alerts: true        # Email immediately when a new match is found
+    digest_enabled: true        # Also send daily digest email
+    digest_empty_send: false    # Set true to send digest even when nothing new
+
+  # SMS notifications (instant alerts only — no SMS digests)
+  # Requires: an SMS MCP connector (e.g. Twilio)
+  sms:
+    enabled: false
+    to: "+15555555555"          # Your phone number in E.164 format
+
+  # Chat notifications (Slack, Teams, Discord, etc.)
+  # Requires: a chat MCP connector
+  chat:
+    enabled: false
+    channel: "#apartment-hunt"  # Channel to post to (use # prefix for Slack)
+    instant_alerts: true
+    digest_enabled: true        # Also post digest summary to channel
+
+
+# ----------------------------------------------------------
+# STATE TRACKING
+# The monitor saves seen listing IDs here to avoid re-alerting.
+# ----------------------------------------------------------
+state:
+  file: seen-listings.json   # Path relative to this config.yaml file
+  max_age_days: 30           # Remove listings older than this on weekly cleanup
+
+
+# ----------------------------------------------------------
+# SCHEDULE
+# Used by /schedule-setup to create Cowork scheduled tasks.
+# These values don't affect manual scans.
+# ----------------------------------------------------------
+schedule:
+  instant_check_interval: 60    # Minutes between checks (min: 15)
+  digest_time: "08:00"          # Daily digest send time (24h HH:MM)
+  digest_timezone: "America/New_York"   # IANA timezone string
+  weekly_recap_day: "Sunday"    # Day for weekly recap
+  weekly_recap_time: "09:00"    # Time for weekly recap (24h HH:MM)
+
+
+# ----------------------------------------------------------
+# WEEKLY RECAP (optional extras)
+# ----------------------------------------------------------
+weekly_recap:
+  # Additional broader URLs checked only during weekly recap
+  # Great for a city-wide search that would be too noisy for hourly checks
+  extra_urls:
+    # - https://craigslist.org/search/apa?...  # city-wide, no neighborhood filter
+
+  # How far above max_price to look for "Worth a Second Look" listings (percent)
+  price_buffer_pct: 15
