@@ -97,7 +97,7 @@ listing_urls:
 
 filters:
   beds_min: 2
-  max_price: 3500
+  max_price: 4000
   num_people: 2                             # For price-per-person calculation
   must_have: [dishwasher, in-unit laundry]
   dealbreakers: [no pets, street parking only]
