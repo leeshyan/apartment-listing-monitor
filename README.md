@@ -137,6 +137,8 @@ Sites that rely heavily on JavaScript to render listings (common on large proper
 
 Here's what an instant alert email looks like when a match is found:
 
+![Instant alert email](screenshot-alert.png)
+
 ```
 New apartment match found!
 
