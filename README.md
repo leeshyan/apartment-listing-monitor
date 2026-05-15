@@ -34,7 +34,7 @@ All state is stored locally in `seen-listings.json` — no external database nee
 
 ### 1. Install the plugin
 
-Download `apartment-listing-monitor.plugin` from the [Releases page](https://github.com/your-username/apartment-listing-monitor/releases) and drag it into Cowork.
+Download `apartment-listing-monitor.plugin` from the [Releases page](https://github.com/leeshyan/apartment-listing-monitor/releases) and drag it into Cowork.
 
 ### 2. Connect your notification tools
 

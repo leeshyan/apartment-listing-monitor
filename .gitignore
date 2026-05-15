@@ -9,6 +9,9 @@ daily-log.json
 # Backup state files
 *.bak
 
+# Packaged plugin file (distributed via GitHub Releases, not committed to repo)
+*.plugin
+
 # macOS
 .DS_Store
 
